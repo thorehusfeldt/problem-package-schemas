@@ -1,0 +1,8 @@
+hint: "Second argument can be negative"
+description: "Instance with negative x"
+---
+args: ["connected", "second pass"]
+---
+args: 
+  - "connected"
+  - "second pass"

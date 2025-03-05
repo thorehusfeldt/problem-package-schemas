@@ -1,0 +1,10 @@
+output_validator_args: ["--min_m 100"]
+input_validator_args:
+  "numbers":  ["--negative"]
+  "graph":
+    - "--connected"
+full_feedback: true
+hint: "Did you remember that x can be negative?"
+description: "Negative x'es"
+---
+input_validator_args: ["--negative"]
