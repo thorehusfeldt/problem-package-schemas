@@ -1,0 +1,12 @@
+other:
+  secret/***: # Double star glob not supported:
+    required: [AC]
+---
+other:
+  language: e # Language does not exist in the programming language list
+---
+other:
+  score: [20, 10] # Scores must be sorted
+---
+other:
+  score: [10.0] # Scores must be a pair (or number)
