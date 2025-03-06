@@ -5,6 +5,7 @@ declare -A schemas=(
     ["testdata"]="DataConfiguration"
     ["testcase"]="CaseConfiguration"
     ["generators"]="Generators"
+    ["submissions"]="Submissions"
 )
 
 # Valid cases (should pass)
@@ -14,8 +15,8 @@ for filepath in ../yaml/valid/*.yaml; do
     # Extract the type (last part before .yaml)
     for key in "${!schemas[@]}"; do
         if [[ "$filename" == *"$key.yaml" ]]; then
-	    echo "$filepath"
-            cue vet "$filepath" ../cue/*.cue --schema "#${schemas[$key]}" >/dev/null 2>&1
+	    echo "#${schemas[$key]}" "$filepath"
+            cue vet "$filepath" ../cue/*.cue --schema "#${schemas[$key]}" #>/dev/null 2>&1
         fi
     done
 done
