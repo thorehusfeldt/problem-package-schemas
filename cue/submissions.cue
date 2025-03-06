@@ -15,7 +15,7 @@ let globbed_filename = "([A-Za-z0-9*][A-Za-z0-9_.*-]{0,253}[A-Za-z0-9*]|\\*)"
 }
 
 #submission: {
-	language?:   string
+	language?:   #ProgrammingLanguage
 	entrypoint?: string
 	author?: #Person | [...#Person]
 	#expectation
@@ -25,6 +25,6 @@ let globbed_filename = "([A-Za-z0-9*][A-Za-z0-9_.*-]{0,253}[A-Za-z0-9*]|\\*)"
 #expectation: {
 	permitted?: [#verdict, ...#verdict] // only these verdicts may appear
 	required?: [#verdict, ...#verdict] // at least one of these verdicts must appear
-	score?: float | [float, float] & list.IsSorted(list.Ascending)
+	score?: number | [number, number] & list.IsSorted(list.Ascending)
 	use_for_timelmit?: false | "lower" | "upper"
 }
