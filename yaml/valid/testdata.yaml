@@ -8,3 +8,21 @@ hint: "Did you remember that x can be negative?"
 description: "Negative x'es"
 ---
 input_validator_args: ["--negative"]
+---
+scoring:
+  required_pass: sample
+---
+scoring:
+  require_pass: secret
+---
+scoring:
+  require_pass: secret/
+---
+scoring:
+  require_pass: secret/foo
+---
+scoring:
+  require_pass: 
+    - sample
+    - secret/foo
+    - secret/bar/baz
