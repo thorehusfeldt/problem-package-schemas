@@ -69,11 +69,11 @@ import "strings"
 	// such as ["tree_generator/tree.py", "lib.py"].
 	generators?: [#name]: [...(#path & !~"^/")] & [_, ...]
 	data: close({
-		sample!:          #testgroup
-		secret!:          #testgroup
-		invalid_inputs?:  #testgroup
-		invalid_answers?: #testgroup
-		invalid_outputs?: #testgroup
+		sample!:         #testgroup
+		secret!:         #testgroup
+		invalid_input?:  #testgroup
+		invalid_answer?: #testgroup
+		invalid_output?: #testgroup
 	})
 	#testgroup_config
 
