@@ -40,13 +40,13 @@ let filename = "[A-Za-z0-9][A-Za-z0-9_.-]{0,253}[A-Za-z0-9]"
 	#Config
 }
 
-#requiredpath: "sample" | =~"^secret(/\(dirname))*$"
+#requiredpath: #dirpath &  (=~"^sample" | =~"^secret")
 
 #DataConfiguration : {
 	scoring?: {
-		score: int & >=0 | "unbounded"
-		aggregation: "pass-fail" | "sum" | "min"
-		require_pass: #requiredpath | [...#requiredpath]
+		score?: int & >=0 | "unbounded"
+		aggregation?: "pass-fail" | "sum" | "min"
+		require_pass?: #requiredpath | [...#requiredpath]
 	}
 	static_validation?: *false | true |  {
 		args?: [...string]
