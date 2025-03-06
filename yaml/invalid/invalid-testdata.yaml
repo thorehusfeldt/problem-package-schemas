@@ -1,0 +1,25 @@
+# Cannot spedify subdirectories of sample
+scoring:
+  required_pass: sample/small
+---
+# Score must be nonnegative int
+scoring:
+  score: -3
+---
+# Score must be nonnegative int or "unbounded"
+scoring:
+  score: "unbounded "
+---
+# Score must be int
+scoring:
+  score: 3.0
+---
+scoring:
+  aggregation: pass_fail
+---
+input_validator_args: must be sequence or map
+---
+input_validator_args: 
+  syntax: must be sequence
+---
+output_validator_args: must be sequence
