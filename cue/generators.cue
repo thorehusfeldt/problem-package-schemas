@@ -74,6 +74,7 @@ import "strings"
 		invalid_input?:  #testgroup
 		invalid_answer?: #testgroup
 		invalid_output?: #testgroup
+		valid_output?:   #testgroup
 	})
 	#testgroup_config
 
