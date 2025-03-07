@@ -52,7 +52,7 @@ import "time"
 	// The people who created this problem. Can be a single person such as "Ada Lovelace".
 	credits?: #Person | {
 		// The people who conceptualised this problem.
-		authors!: #Persons
+		authors?: #Persons
 		// The people who developed the problem package, such as the statement, validators, and test data.
 		contributors?: #Persons
 		// The people who tested the problem package, for example, by providing a solution and reviewing the statement.
@@ -75,7 +75,31 @@ import "time"
 	embargo_until?: time.Format("2006-01-02") | time.Format("2006-01-02T15:04:05Z")
 
 	// Time and size limits for this problem.
-	limits?: #Limits
+	limits: {
+		// The time limit for submission, in seconds
+		time_limit?: float & >0
+
+		// Safety margins relative to the slowest accepted submission
+		time_multipliers?: {
+			ac_to_time_limit?:  float & >=1 | *2.0
+			time_limit_to_tle?: float & >=1 | *1.5
+		}
+
+		// Resolution for determining the time_limit from the slowest accepted solution
+		time_resolution?:   float & >0 | *1.0
+
+		// Time bounds in seconds
+		["compilation_time" | "compilation_time" ]:  int & >0
+
+		// Size bounds in MiB
+		[ "memory" | "output" | "compilation_memory" | "validation_memory" | "validation_output" ] : int & >0
+
+		// Code length in kiB
+		code? : int & >0
+
+		// How many passes does validation entail?
+		validation_passes?: int & >0 | *1
+	}
 
 	// A sequence of keywords describing the problem, such as ["brute force", "real-life"].
 	keywords?: [...string]
@@ -88,17 +112,4 @@ import "time"
 
 	// Constants for templates in the rest of the package, such as { max_n: 2000, name: "Alice" }
 	constants?: [=~"^[a-zA-Z_][a-zA-Z0-9_]*$"]: int | float | string
-}
-
-#TimeLimit: "time_limit" | "compilation_time" | "validation_time"
-#SizeLimit: "memory" | "output" | "code" | "compilation_memory" | "validation_memory" | "validation_output"
-#Limits: {
-	time_multipliers?: {
-		ac_to_time_limit?:  float & >=1 | *2.0
-		time_limit_to_tle?: float & >=1 | *1.5
-	}
-	time_resolution?:   float & >0 | *1.0
-	[#TimeLimit]:       float & >0
-	[#SizeLimit]:       int & >0
-	validation_passes?: int & >0 | *1
 }
