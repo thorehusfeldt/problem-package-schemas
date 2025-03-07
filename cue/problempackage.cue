@@ -27,28 +27,27 @@ let filename = "[A-Za-z0-9][A-Za-z0-9_.-]{0,253}[A-Za-z0-9]"
 	output_validator_args?: [...string]
 
 	// input validator arguments can be passed to invidual validators using a map
-	input_validator_args?: [...string] | { [string]: [...string] }
+	input_validator_args?: [...string] | {[string]: [...string]}
 
-	full_feedback?: bool
-	["hint" | "description" ]: string
+	full_feedback?:           bool
+	["hint" | "description"]: string
 }
 
-
-#CaseConfiguration : {
+#Case: {
 	// Indvidual test cases can pass arguments to the submission
 	args?: [...string]
 	#Config
 }
 
-#requiredpath: #dirpath &  (=~"^sample" | =~"^secret")
+#requiredpath: #dirpath & (=~"^sample" | =~"^secret")
 
-#DataConfiguration : {
+#Group: {
 	scoring?: {
-		score?: int & >=0 | "unbounded"
+		score?:       int & >=0 | "unbounded"
 		aggregation?: "pass-fail" | "sum" | "min"
 		require_pass?: #requiredpath | [...#requiredpath]
 	}
-	static_validation?: *false | true |  {
+	static_validation?: *false | true | {
 		args?: [...string]
 		score?: float
 	}

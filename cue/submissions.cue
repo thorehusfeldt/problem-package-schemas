@@ -2,7 +2,6 @@ package problempackage
 
 import "list"
 
-
 #verdict: "AC" | "WA" | "RTE" | "TLE"
 
 let globbed_dirname = "[A-Za-z0-9*]([A-Za-z0-9_*-]{0,253}[A-Za-z0-9*])?"

@@ -7,7 +7,6 @@ package problempackage
 
 import "struct"
 
-
 import "strings"
 
 // A command invokes a generator, like "tree --n 5".
@@ -35,7 +34,7 @@ import "strings"
 
 #testgroup_config: {
 	#config
-	"testdata.yaml"?: #DataConfiguration
+	"testdata.yaml"?: #Group
 }
 
 #testcase:

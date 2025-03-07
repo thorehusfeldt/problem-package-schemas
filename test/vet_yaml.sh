@@ -2,8 +2,8 @@
 
 declare -A schemas=(
     ["problem"]="Problem"
-    ["testdata"]="DataConfiguration"
-    ["testcase"]="CaseConfiguration"
+    ["testdata"]="Group"
+    ["testcase"]="Case"
     ["generators"]="Generators"
     ["submissions"]="Submissions"
 )
