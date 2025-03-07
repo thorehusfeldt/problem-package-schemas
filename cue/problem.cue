@@ -22,6 +22,11 @@ import "time"
 // Persons are one or more people, such as "Ada Lovelace <ada@lovelace.com>" or ["Alice", "Bob"]
 #Persons: #Person | [#Person, ...#Person]
 
+#rights: *{ license?: *"unknown" | "public domain" } | {
+	license!: "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
+	rights_owner?: #Person
+}
+
 
 #Problem: {
 	// Problem package format used by this file, such as "2023-12-draft"
@@ -61,16 +66,16 @@ import "time"
 		translators?: [#LanguageCode]: #Persons
 	}
 
-	// The source(s) of this problem.
+	// The source(s) of this problem, such as "NWERC 2024"
 	source?: #Source | [#Source, ...#Source]
-	license?: *"unknown" | "public domain" | "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
-	rights_owner?: #Person
-	// Who owns the right to this problem
 
-	// Do not publis this problem until the embargo is lifted.
+	// Who owns the right to this problem
+	#rights
+
+	// Do not publish this problem until the embargo is lifted.
 	embargo_until?: time.Format("2006-01-02") | time.Format("2006-01-02T15:04:05Z")
 
-	// Specify time and size limits for this problem.
+	// Time and size limits for this problem.
 	limits?: #Limits
 
 	// A sequence of keywords describing the problem, such as ["brute force", "real-life"].

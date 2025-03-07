@@ -1,0 +1,19 @@
+# Don't specify rights for a public domain problem
+license: "public domain"
+rights_owner: "Ada Lovelace"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# Don't specify rights for problem with unknown license
+license: "unknown"
+rights_owner: "Ada Lovelace"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# Missing license defaults to unknown
+rights_owner: "Ada Lovelace"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
