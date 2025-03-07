@@ -22,11 +22,6 @@ import "time"
 // Persons are one or more people, such as "Ada Lovelace <ada@lovelace.com>" or ["Alice", "Bob"]
 #Persons: #Person | [#Person, ...#Person]
 
-#rights: *{license?: *"unknown" | "public domain"} | {
-	license!:      "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
-	rights_owner?: #Person
-}
-
 #Problem: {
 	// Problem package format used by this file, such as "2023-12-draft"
 	problem_format_version!: =~"^[0-9]{4}-[0-9]{2}(-draft)?$" | "draft" | "legacy" | "legacy-icpc"
@@ -68,8 +63,12 @@ import "time"
 	// The source(s) of this problem, such as "NWERC 2024"
 	source?: #Source | [#Source, ...#Source]
 
-	// Who owns the right to this problem
-	#rights
+	// The license of this problem.
+	*{license?: *"unknown" | "public domain"} | {
+		license!: "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
+		// Who owns the rights to this problem.
+		rights_owner?: #Person
+	}
 
 	// Do not publish this problem until the embargo is lifted.
 	embargo_until?: time.Format("2006-01-02") | time.Format("2006-01-02T15:04:05Z")
@@ -86,16 +85,16 @@ import "time"
 		}
 
 		// Resolution for determining the time_limit from the slowest accepted solution
-		time_resolution?:   float & >0 | *1.0
+		time_resolution?: float & >0 | *1.0
 
 		// Time bounds in seconds
-		["compilation_time" | "compilation_time" ]:  int & >0
+		["compilation_time" | "compilation_time"]: int & >0
 
 		// Size bounds in MiB
-		[ "memory" | "output" | "compilation_memory" | "validation_memory" | "validation_output" ] : int & >0
+		["memory" | "output" | "compilation_memory" | "validation_memory" | "validation_output"]: int & >0
 
 		// Code length in kiB
-		code? : int & >0
+		code?: int & >0
 
 		// How many passes does validation entail?
 		validation_passes?: int & >0 | *1
