@@ -7,7 +7,7 @@ import "time"
 #ProgrammingLanguage: "ada" | "algol68" | "apl" | "bash" | "c" | "cgmp" | "cobol" | "cpp" | "cppgmp" | "crystal" | "csharp" | "d" | "dart" | "elixir" | "erlang" | "forth" | "fortran" | "fsharp" | "gerbil" | "go" | "haskell" | "java" | "javaalgs4" | "javascript" | "julia" | "kotlin" | "lisp" | "lua" | "modula2" | "nim" | "objectivec" | "ocaml" | "octave" | "odin" | "pascal" | "perl" | "php" | "prolog" | "python2" | "python3" | "python3numpy" | "racket" | "ruby" | "rust" | "scala" | "simula" | "smalltalk" | "snobol" | "swift" | "typescript" | "visualbasic" | "zig"
 
 // Two- or three-letter language codes such as "en", "fil", or "po-BR"
-#LanguageCode: =~"^[a-z]{2,3}(-[A-Z]{2})?$"
+#LanguageCode: =~"^[a-z]{2,3}(-.+)?$"
 
 #Type: "pass-fail" | "scoring" | "multi-pass" | "interactive" | "submit-answer"
 
@@ -22,11 +22,10 @@ import "time"
 // Persons are one or more people, such as "Ada Lovelace <ada@lovelace.com>" or ["Alice", "Bob"]
 #Persons: #Person | [#Person, ...#Person]
 
-#rights: *{ license?: *"unknown" | "public domain" } | {
-	license!: "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
+#rights: *{license?: *"unknown" | "public domain"} | {
+	license!:      "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
 	rights_owner?: #Person
 }
-
 
 #Problem: {
 	// Problem package format used by this file, such as "2023-12-draft"
