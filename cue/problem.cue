@@ -94,8 +94,8 @@ import "time"
 #SizeLimit: "memory" | "output" | "code" | "compilation_memory" | "validation_memory" | "validation_output"
 #Limits: {
 	time_multipliers?: {
-		ac_to_time_limit?:  float | *2.0
-		time_limit_to_tle?: float | *1.5
+		ac_to_time_limit?:  float & >=1 | *2.0
+		time_limit_to_tle?: float & >=1 | *1.5
 	}
 	time_resolution?:   float & >0 | *1.0
 	[#TimeLimit]:       float & >0
