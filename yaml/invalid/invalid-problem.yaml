@@ -17,3 +17,18 @@ rights_owner: "Ada Lovelace"
 name: Hello
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02
+---
+# Don't specify validation passes for problems that aren't multi-pass
+limits:
+  validation_passes: 2
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# Multi-pass problems need at least two passes
+submission_type: multi-pass
+limits:
+  validation_passes: 1
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02

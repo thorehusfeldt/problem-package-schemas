@@ -1,15 +1,12 @@
 package problempackage
 
-import "list"
-
 import "time"
+import "strings"
 
 #ProgrammingLanguage: "ada" | "algol68" | "apl" | "bash" | "c" | "cgmp" | "cobol" | "cpp" | "cppgmp" | "crystal" | "csharp" | "d" | "dart" | "elixir" | "erlang" | "forth" | "fortran" | "fsharp" | "gerbil" | "go" | "haskell" | "java" | "javaalgs4" | "javascript" | "julia" | "kotlin" | "lisp" | "lua" | "modula2" | "nim" | "objectivec" | "ocaml" | "octave" | "odin" | "pascal" | "perl" | "php" | "prolog" | "python2" | "python3" | "python3numpy" | "racket" | "ruby" | "rust" | "scala" | "simula" | "smalltalk" | "snobol" | "swift" | "typescript" | "visualbasic" | "zig"
 
 // Two- or three-letter language codes such as "en", "fil", or "po-BR"
 #LanguageCode: =~"^[a-z]{2,3}(-.+)?$"
-
-#Type: "pass-fail" | "scoring" | "multi-pass" | "interactive" | "submit-answer"
 
 // A problem source is typically a contest or course, such as "NWERC 2023" or { name: "NWERC 2023", url: "2023.nwerc.eu" }
 #Source: string | {
@@ -26,14 +23,11 @@ import "time"
 	// Problem package format used by this file, such as "2023-12-draft"
 	problem_format_version!: =~"^[0-9]{4}-[0-9]{2}(-draft)?$" | "draft" | "legacy" | "legacy-icpc"
 
-	// The type of this problem, such as "pass-fail" or ["scoring", "interactive", "multi-pass"]
-	type?: *"pass-fail" | #Type | [#Type, ...#Type]
-	if (type & [...]) != _|_ {
-		_policy: true &
-			!(list.Contains(type, "scoring") && list.Contains(type, "pass-fail")) &&
-			!(list.Contains(type, "multi-pass") && list.Contains(type, "submit-answer")) &&
-			!(list.Contains(type, "interactive") && list.Contains(type, "submit-answer"))
-	}
+	// The judgement type is "pass-fail" (the default) or "scoring"
+	judgement_type?: *"pass-fail" | "scoring"
+
+	// The submission type is one of "standard" (the default) or …
+	submission_type?: *"standard" | "submit_answer" | "interactive" | "multi-pass" | "interactive multi-pass"
 
 	// The name of this problem, such as "Hello" or { en: "Hello", da: "Hej" }
 	name!: string | {[#LanguageCode]: string}
@@ -96,8 +90,12 @@ import "time"
 		// Code length in kiB
 		code?: int & >0
 
-		// How many passes does validation entail?
-		validation_passes?: int & >0 | *1
+		if submission_type != _|_ {
+			if strings.Contains(submission_type, "multi-pass") {
+				// For multi-pass problems, how many passes does validation use?
+				validation_passes: *2 | int & >=2
+			}
+		}
 	}
 
 	// A sequence of keywords describing the problem, such as ["brute force", "real-life"].

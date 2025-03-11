@@ -2,6 +2,7 @@ name:
   en: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02-draft
+judgement_type: scoring
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
@@ -18,51 +19,39 @@ problem_format_version: legacy-icpc
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type: pass-fail
+judgement_type: pass-fail
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type: scoring
+judgement_type: scoring
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type: interactive
+submission_type: interactive
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type: multi-pass
+submission_type: multi-pass
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type: submit-answer
----
-# Can give type as sequence instead:
-name: Hello World!
-uuid: 550e8400-e29b-41d4-a716-446655440000
-problem_format_version: 9999-99
-type:
-  - pass-fail
+submission_type: submit_answer
 ---
 # Can give more than one type
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type:
-  - pass-fail # redundant, because pass-fail is default
-  - interactive
 ---
-# Can give more than one type
+# Can give both judgement and submission type
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 9999-99
-type:
-  - scoring
-  - interactive
-  - multi-pass
+judgement_type: scoring
+submission_type: interactive multi-pass
 ---
 name:
   en: Hello World!
@@ -162,3 +151,17 @@ credits:
 name: Hello World!
 problem_format_version: 9999-99
 uuid: 550e8400-e29b-41d4-a716-446655440000
+---
+# Specify validation passes for multi-pass problem
+limits:
+  validation_passes: 2 # this is the default
+submission_type: multi-pass
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# limits.validation_passes would default to 2
+submission_type: multi-pass
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
