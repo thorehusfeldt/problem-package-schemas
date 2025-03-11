@@ -68,16 +68,16 @@ import "strings"
 	// Time and size limits for this problem.
 	limits: {
 		// The time limit for submission, in seconds
-		time_limit?: float & >0
+		time_limit?: number & >0
 
 		// Safety margins relative to the slowest accepted submission
 		time_multipliers?: {
-			ac_to_time_limit?:  float & >=1 | *2.0
-			time_limit_to_tle?: float & >=1 | *1.5
+			ac_to_time_limit?:  number & >=1 | *2.0
+			time_limit_to_tle?: number & >=1 | *1.5
 		}
 
 		// Resolution for determining the time_limit from the slowest accepted solution
-		time_resolution?: float & >0 | *1.0
+		time_resolution?: number & >0 | *1.0
 
 		// Time bounds in seconds
 		["compilation_time" | "compilation_time"]: int & >0
@@ -106,5 +106,5 @@ import "strings"
 	allow_file_writing?: *false | true
 
 	// Constants for templates in the rest of the package, such as { max_n: 2000, name: "Alice" }
-	constants?: [=~"^[a-zA-Z_][a-zA-Z0-9_]*$"]: int | float | string
+	constants?: [=~"^[a-zA-Z_][a-zA-Z0-9_]*$"]: number | string
 }
