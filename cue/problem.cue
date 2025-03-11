@@ -5,8 +5,6 @@ import "strings"
 
 #ProgrammingLanguage: "ada" | "algol68" | "apl" | "bash" | "c" | "cgmp" | "cobol" | "cpp" | "cppgmp" | "crystal" | "csharp" | "d" | "dart" | "elixir" | "erlang" | "forth" | "fortran" | "fsharp" | "gerbil" | "go" | "haskell" | "java" | "javaalgs4" | "javascript" | "julia" | "kotlin" | "lisp" | "lua" | "modula2" | "nim" | "objectivec" | "ocaml" | "octave" | "odin" | "pascal" | "perl" | "php" | "prolog" | "python2" | "python3" | "python3numpy" | "racket" | "ruby" | "rust" | "scala" | "simula" | "smalltalk" | "snobol" | "swift" | "typescript" | "visualbasic" | "zig"
 
-// Two- or three-letter language codes such as "en", "fil", or "po-BR"
-#LanguageCode: =~"^[a-z]{2,3}(-.+)?$"
 
 // A problem source is typically a contest or course, such as "NWERC 2023" or { name: "NWERC 2023", url: "2023.nwerc.eu" }
 #Source: string | {
@@ -26,11 +24,11 @@ import "strings"
 	// The judgement type is "pass-fail" (the default) or "scoring"
 	judgement_type?: *"pass-fail" | "scoring"
 
-	// The submission type is one of "standard" (the default) or …
+	// The submission types are standard, interactive or multi-pass, or submit_answer.
 	submission_type?: *"standard" | "submit_answer" | "interactive" | "multi-pass" | "interactive multi-pass"
 
 	// The name of this problem, such as "Hello" or { en: "Hello", da: "Hej" }
-	name!: string | {[#LanguageCode]: string}
+	name!: string | {[string]: string}
 
 	// A unique identifier for this problem, such as "8ee7605a-ab1a-8226-1d71-e346ab1e688d"
 	uuid!: string
@@ -51,7 +49,7 @@ import "strings"
 		// Extra acknowledgements or special thanks in addition to the previously mentioned.
 		acknowledgements?: #Persons
 		// The people who translated the statement to other languages, mapped by language code.
-		translators?: [#LanguageCode]: #Persons
+		translators?: [string]: #Persons
 	}
 
 	// The source(s) of this problem, such as "NWERC 2024"
