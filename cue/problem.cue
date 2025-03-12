@@ -15,7 +15,11 @@ import "net"
 	url?:  net.URL()
 }
 
-#Person: string
+#Person: string | {
+	name!: string
+	email?: string
+	orcid?: =~"^https://orcid\\.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
+}
 
 // Persons are one or more people, such as "Ada Lovelace <ada@lovelace.com>" or ["Alice", "Bob"]
 #Persons: #Person | [#Person, ...#Person]

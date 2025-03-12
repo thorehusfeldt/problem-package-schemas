@@ -166,3 +166,23 @@ submission_type: multi-pass
 name: Hello
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02
+---
+# Rich person information:
+credits:
+  name: Audrey Authorson 
+  email: audrey@foo.bar
+  orcid: https://orcid.org/1234-1234-1234-1234
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# More than one author use credits.authors
+credits:
+  authors:
+    - name: Alice
+      orcid: https://orcid.org/1234-1234-1234-1234
+    - name: Audrey Authorson 
+      email: bob@foo.bar
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02

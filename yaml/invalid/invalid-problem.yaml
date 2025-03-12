@@ -50,3 +50,25 @@ problem_format_version: 2023-02
 # URL must be valie
 source:
   url: "www.nwerc24.com"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# ORCID must be valid
+credits:
+  name: Audrey Authorson 
+  orcid: orcid.org/1234-1234-1234-1234
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# Cannot specify multiple authors in credits
+credits:
+  - name: Alice
+    orcid: https://orcid.org/1234-1234-1234-1234
+  - name: Audrey Authorson 
+    email: bob@foo.bar
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+
