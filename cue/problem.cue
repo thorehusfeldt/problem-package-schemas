@@ -2,6 +2,7 @@ package problempackage
 
 import "time"
 import "strings"
+import uuidlib "uuid"
 
 #ProgrammingLanguage: "ada" | "algol68" | "apl" | "bash" | "c" | "cgmp" | "cobol" | "cpp" | "cppgmp" | "crystal" | "csharp" | "d" | "dart" | "elixir" | "erlang" | "forth" | "fortran" | "fsharp" | "gerbil" | "go" | "haskell" | "java" | "javaalgs4" | "javascript" | "julia" | "kotlin" | "lisp" | "lua" | "modula2" | "nim" | "objectivec" | "ocaml" | "octave" | "odin" | "pascal" | "perl" | "php" | "prolog" | "python2" | "python3" | "python3numpy" | "racket" | "ruby" | "rust" | "scala" | "simula" | "smalltalk" | "snobol" | "swift" | "typescript" | "visualbasic" | "zig"
 
@@ -31,7 +32,7 @@ import "strings"
 	name!: string | {[string]: string}
 
 	// A unique identifier for this problem, such as "8ee7605a-ab1a-8226-1d71-e346ab1e688d"
-	uuid!: string
+	uuid!: uuidlib.Valid()
 
 	// A version for this problem, such as "draft" or "1.1"
 	version?: string
