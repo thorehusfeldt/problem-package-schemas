@@ -2,7 +2,8 @@ name:
   en: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02-draft
-judgement_type: scoring
+submission_type: interactive multi-pass
+
 ---
 name: Hello World!
 uuid: 550e8400-e29b-41d4-a716-446655440000

@@ -37,3 +37,16 @@ limits:
 name: Hello
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02
+---
+# URL must be valid
+source:
+  name: NWERC 2024
+  url: "foo\bar"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# Source must have name
+# URL must be valie
+source:
+  url: "www.nwerc24.com"
