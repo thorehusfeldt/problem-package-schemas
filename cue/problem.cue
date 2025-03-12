@@ -66,7 +66,7 @@ import "net"
 	*{license?: *"unknown" | "public domain"} | {
 		license!: "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
 		// Who owns the rights to this problem.
-		rights_owner?: #Person
+		rights_owner?: #Persons
 	}
 
 	// Do not publish this problem until the embargo is lifted.
