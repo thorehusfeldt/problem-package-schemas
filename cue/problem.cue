@@ -17,7 +17,7 @@ import "net"
 
 #Person: string | {
 	name!: string
-	email?: string
+	email?: =~ "@"
 	orcid?: =~"^https://orcid\\.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
 }
 
