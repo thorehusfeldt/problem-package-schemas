@@ -50,9 +50,9 @@ import "strings"
 		#config
 	} & struct.MinFields(1)
 
-#data_list: {[#name | ""]: #testgroup | #testcase} & struct.MinFields(1) & struct.MaxFields(1)
+#data_list: {[#dataname | ""]: #testgroup | #testcase} & struct.MinFields(1) & struct.MaxFields(1)
 
-#data_dict_production: {data?: {[#name]: #testgroup | #testcase}}
+#data_dict_production: {data?: {[#dataname]: #testgroup | #testcase}}
 
 #data_list_production: {data?: [...#data_list]}
 
@@ -66,7 +66,7 @@ import "strings"
 	// Generators are named like files or testcases, like "tree.py" or "a".
 	// Each consists of a nonempty list of paths relative to "/generators/",
 	// such as ["tree_generator/tree.py", "lib.py"].
-	generators?: [#name]: [...(#path & !~"^/")] & [_, ...]
+	generators?: [#dataname]: [...(#path & !~"^/")] & [_, ...]
 	data: close({
 		sample!:         #testgroup
 		secret!:         #testgroup

@@ -5,7 +5,7 @@ package problempackage
 // "huge", "make_tree", "3", "a", or "connected_graph-01";
 // but not "huge_" or "-2" or "bapc.24" or ".." or "".
 let dirname = "[A-Za-z0-9]([A-Za-z0-9_-]{0,253}[A-Za-z0-9])?"
-#name: =~"^\(dirname)$"
+#dataname: =~"^\(dirname)$"
 
 // Directory paths are separated by / and do not start with a slash
 #dirpath: =~"^(\(dirname)/)*\(dirname)$"

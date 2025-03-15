@@ -8,21 +8,24 @@ import "net"
 
 #ProgrammingLanguage: "ada" | "algol68" | "apl" | "bash" | "c" | "cgmp" | "cobol" | "cpp" | "cppgmp" | "crystal" | "csharp" | "d" | "dart" | "elixir" | "erlang" | "forth" | "fortran" | "fsharp" | "gerbil" | "go" | "haskell" | "java" | "javaalgs4" | "javascript" | "julia" | "kotlin" | "lisp" | "lua" | "modula2" | "nim" | "objectivec" | "ocaml" | "octave" | "odin" | "pascal" | "perl" | "php" | "prolog" | "python2" | "python3" | "python3numpy" | "racket" | "ruby" | "rust" | "scala" | "simula" | "smalltalk" | "snobol" | "swift" | "typescript" | "visualbasic" | "zig"
 
+#name: =~ "[[:print:]]" & !~ "^[[:space:]]$"
 
-// A problem source is typically a contest or course, such as "NWERC 2023" or { name: "NWERC 2023", url: "2023.nwerc.eu" }
-#Source: string | {
-	name!: string
+// A problem source is typically a contest or course,
+// such as "NWERC 2023" or { name: "NWERC 2023", url: "2023.nwerc.eu" }
+#Source: #name | {
+	name!: #name
 	url?:  net.URL()
 }
 
-#Person: string | {
-	name!: string
+#Person: #name | {
+	name!: #name
 	email?: =~ "@"
 	orcid?: =~"^https://orcid\\.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
 }
 
 // Persons are one or more people, such as "Ada Lovelace <ada@lovelace.com>" or ["Alice", "Bob"]
 #Persons: #Person | [#Person, ...#Person]
+
 
 #Problem: {
 	// Problem package format used by this file, such as "2023-12-draft"
@@ -35,7 +38,7 @@ import "net"
 	submission_type?: *"standard" | "submit_answer" | "interactive" | "multi-pass" | "interactive multi-pass"
 
 	// The name of this problem, such as "Hello" or { en: "Hello", da: "Hej" }
-	name!: string | {[string]: string}
+	name!: #name | {[string]: #name}
 
 	// A unique identifier for this problem, such as "8ee7605a-ab1a-8226-1d71-e346ab1e688d"
 	uuid!: uuidlib.Valid()
