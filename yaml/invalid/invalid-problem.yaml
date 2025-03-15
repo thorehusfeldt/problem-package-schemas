@@ -17,8 +17,15 @@ name: Hello
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02
 ---
-# Missing license defaults to unknown
+# Missing license defaults to unknown; thus can’t have rights_owner
 rights_owner: "Ada Lovelace"
+name: Hello
+uuid: 550e8400-e29b-41d4-a716-446655440000
+problem_format_version: 2023-02
+---
+# License requires rights
+license: cc0
+  # rights_owner: "Ada Lovelace"
 name: Hello
 uuid: 550e8400-e29b-41d4-a716-446655440000
 problem_format_version: 2023-02

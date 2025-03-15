@@ -65,8 +65,11 @@ import "net"
 	// The license of this problem.
 	*{license?: *"unknown" | "public domain"} | {
 		license!: "cc0" | "cc by" | "cc by-sa" | "educational" | "permission"
-		// Who owns the rights to this problem.
-		rights_owner?: #Persons
+		// Who owns the rights to this problem?
+		// Must be specified if credits and source are absent.
+		rights_owner?: string
+		if (credits & #Person) == _|_ && credits.authors == _|_ && source == _|_ {
+			rights_owner!: _ }
 	}
 
 	// Do not publish this problem until the embargo is lifted.
