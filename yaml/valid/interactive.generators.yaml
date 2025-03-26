@@ -1,0 +1,24 @@
+data:
+  sample:
+    data:
+    - '':
+        interaction: |
+          < foo
+          > bar
+          > baz
+    - '':
+        interaction: |
+          < foo
+          > bar
+        in: "foo # adversary: adaptive"
+        in.download: "foo"
+        ans.download: |
+          bar
+          baz
+    - '':
+        interaction: |
+          < foo
+          > bar
+        desc: "a foo, expecting bar"
+        hint: "don't eat yellow snow"
+  secret: {}

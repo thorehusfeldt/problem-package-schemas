@@ -74,6 +74,16 @@ generators:
 # Note that this is different from the data/ directory, which is where the keys
 # of this top-level data: dictionary will be written.
 data:
+  invalid_input:
+    data:
+      "testing":
+        in: gnu
+        desc: oh no
+  invalid_answer:
+    data:
+      "testing":
+        in: gnu
+        ans: oh no
   # Introduce the `sample` directory.
   sample:
     data:
@@ -212,6 +222,9 @@ data:
           - i: tree i
       #    # 23-h
           - j: tree j
+          - k:
+              in: "foo"
+              ans: bar
       #    # 24-h
       #    - k: tree k
       #    # When mixing testcases and testgroups within a testgroup, testgroups

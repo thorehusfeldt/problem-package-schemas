@@ -408,3 +408,54 @@ data:
         visualizer: "/ab/c" # this is fine
         testdata.yaml:      # this is not
           input_validator_flags: "connected" 
+---
+# no ans in invalid_input
+data:
+  sample: {}
+  secret: {}
+  invalid_input:
+    data:
+    - '':
+        in: 1 2 3
+        ans: "6"
+---
+# don't mix out and ans.statement
+data:
+  sample: {}
+  secret: {}
+  invalid_input:
+    data:
+    - '':
+        in: 1 2 3
+        out: "6"
+        ans.statement: "6"
+---
+# no .statement outside of sample
+data:
+  sample: {}
+  secret:
+    data:
+    - '':
+      in: 1 2
+      in.statement: "1  2"
+---
+# Don't mix interaction an in.statement
+data:
+  secret: {}
+  sample:
+    data:
+    - '':
+        interaction: |
+          < foo
+          > bar
+        in.statement: "foo"
+---
+# interaction line must start with < or >
+data:
+  secret: {}
+  sample:
+    - '':
+        interaction: |
+          < foo
+          bar
+          < baz

@@ -1,6 +1,17 @@
 data:
   sample: 
-    data: {}
+    data:
+    - '':
+        in: "1 2 3"
+        in.statement: "1 2    3"
+        in.download: "3 1 2"
+        ans: "6"
+        ans.statement: "6"
+        ans.download: "6"
+    - '':
+        in: "2 2 3"
+        ans: "6"
+        out: "6"
   secret:
     data:
       'nocount':

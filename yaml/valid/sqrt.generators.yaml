@@ -1,0 +1,45 @@
+data:
+  secret: {}
+  sample:
+    data:
+    - '':
+        in: "2"
+        ans: "1.4142"
+  invalid_input:
+    data:
+    - '':
+        in: "-2"
+  invalid_answer:
+    data:
+    - '':
+        in: "2"
+        ans: "1,4142"
+        desc: "Decimal stop, not comma"
+    - '':
+        in: "2"
+        ans: "2**.5"
+        desc: "No python expression"
+  invalid_output:
+    data:
+    - '':
+        in: "2"
+        ans: "1.4142"
+        out: "1.4143"
+        desc: "Off by too much"
+    - '':
+        in: "2"
+        ans: "1.4142"
+        out: "1.414"
+        desc: "Too few digits"
+  valid_output:
+    data:
+    - '':
+        in: "2"
+        ans: "1.4142"
+        out: "1.41421"
+        desc: "Extra digit: fine"
+    - '':
+        in: "2"
+        ans: "1.4142"
+        out: "1.4142135623730951"
+        desc: "Many extra digits"
